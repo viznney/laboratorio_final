@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entidades.Atributo" table="atributo">
+
+        <id name="OID" type="string">
+            <column name="OIDAtributo"/>
+            <generator class="uuid2"/>
+        </id>
+
+        <property name="codigoAtributo" type="int">
+            <column name="codigo"/>
+        </property>
+
+        <property name="nombreAtributo" type="string">
+            <column name="nombre"/>
+        </property>
+
+        <property name="longitudAtributo" type="short">
+            <column name="longitud"/>
+        </property>
+        
+        <many-to-one name="estado" class="entidades.EstadoAtributo" not-null="true">
+            <column name="OIDEstadoAtributo"/>
+        </many-to-one>
+        
+        <many-to-one name="tipoDato" class="entidades.TipoDato" not-null="true">
+            <column name="OIDTipoDato"/>
+        </many-to-one>
+        
+    </class>
+    
+</hibernate-mapping>

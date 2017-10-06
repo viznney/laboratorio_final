@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entidades.TipoImpuestoAtributo" table="tipoimpuestoatributo">
+
+        <id name="OID" type="string">
+            <column name="OIDTipoImpuestoAtributo"/>
+            <generator class="uuid2"/>
+        </id>
+
+        <property name="descartado" type="boolean">
+            <column name="descartado"/>
+        </property>
+        
+        <property name="orden" type="int">
+            <column name="orden"/>
+        </property>
+        
+        <many-to-one name="atributo" class="entidades.Atributo" not-null="true">
+            <column name="OIDAtributo"/>
+        </many-to-one>
+        
+        <many-to-one name="tipoImpuesto" class="entidades.TipoImpuesto" not-null="true">
+            <column name="OIDTipoImpuesto"/>
+        </many-to-one>
+        
+    </class>
+    
+</hibernate-mapping>
+
